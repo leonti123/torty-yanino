@@ -448,6 +448,47 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 .sph{border-radius:16px;margin-top:14px;aspect-ratio:4/3;object-fit:cover;width:100%}
 @media (max-width:900px){.wtable{grid-template-columns:repeat(2,1fr)}.dgrid,.cgrid{grid-template-columns:1fr}.cres{position:static}.steps.six{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.dcard.ph{flex-direction:column}.dcard.ph img{width:100%;aspect-ratio:4/3}.steps.six{grid-template-columns:1fr}}
+/* режим мастера */
+.ft-ms{opacity:.65}
+.ms-bar{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:8px 16px;background:var(--ink);color:#fff;font-size:13.5px;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+.ms-bar b{font-weight:700}.ms-bar [data-n]{opacity:.8;margin-right:auto}
+.ms-bar .btn{min-height:36px;padding:0 14px;font-size:13.5px}
+.ms-on .hd{top:var(--msh,0)}
+.ms-sec{display:flex;align-items:center;gap:8px;width:100%;margin:0 0 14px;padding:12px 16px;border:2px dashed var(--cherry);border-radius:14px;background:#fff;color:var(--cherry);font:700 15px/1.3 var(--sans);cursor:pointer;text-align:left}
+.ms-on #p-cakes .card,.ms-on #p-sweets .dcard,.ms-on #fillings .fcard,.ms-on #gal>button,.ms-on #p-cakes .wtable{outline:2px dashed rgba(165,30,54,.35);outline-offset:3px;cursor:pointer}
+.ms-hid{opacity:.4}
+.ms-toast{position:fixed;left:50%;bottom:84px;transform:translateX(-50%);z-index:300;max-width:calc(100% - 32px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-size:14px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.ms-dlg{width:min(560px,calc(100% - 24px));max-height:calc(100% - 24px);padding:0;border:0;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.3)}
+.ms-dlg::backdrop{background:rgba(40,20,18,.55)}
+.ms-in{position:relative;padding:22px 20px 20px}
+.ms-in h3{font:600 22px/1.2 var(--serif,Georgia,serif);margin:0 36px 8px 0}
+.ms-in p{margin:0 0 14px;color:var(--muted);font-size:14px}
+.ms-x{position:absolute;top:10px;right:10px;width:38px;height:38px;border:0;border-radius:50%;background:var(--bg);font-size:22px;line-height:1;cursor:pointer;color:var(--ink)}
+.ms-f{display:block;margin:0 0 14px}
+.ms-f>span{display:block;font-weight:700;font-size:13.5px;margin-bottom:6px}
+.ms-f input,.ms-f textarea,.ms-sz input{width:100%;box-sizing:border-box;padding:11px 12px;border:1.5px solid var(--line);border-radius:12px;font:16px/1.4 var(--sans);color:var(--ink);background:#fff}
+.ms-f input:focus,.ms-f textarea:focus,.ms-sz input:focus{outline:0;border-color:var(--cherry)}
+.ms-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.ms-row .btn{min-height:46px;padding:0 20px}
+.ms-del{color:var(--cherry)!important}
+.ms-err{color:var(--cherry)!important;font-weight:700;min-height:1px}
+.ms-ck{display:flex;gap:10px;align-items:flex-start;margin:0 0 12px;font-size:14px;cursor:pointer}
+.ms-ck input{width:20px;height:20px;margin:1px 0 0;accent-color:var(--cherry);flex:none}
+.ms-link{border:0;background:none;color:var(--cherry);font:700 14px/1 var(--sans);padding:6px 0;cursor:pointer}
+.ms-sz{display:grid;grid-template-columns:1fr 110px 40px;gap:8px;margin-bottom:8px}
+.ms-sz button{border:0;border-radius:10px;background:var(--bg);font-size:20px;cursor:pointer;color:var(--ink)}
+.ms-ph{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ms-ph img{width:110px;height:110px;object-fit:cover;border-radius:12px}
+.ms-ph>span{font-size:13.5px;color:var(--muted)}
+.ms-ph .btn{min-height:40px;padding:0 16px;font-size:14px}
+.ms-list{display:grid;gap:8px;margin-bottom:14px}
+.ms-li{display:grid;grid-template-columns:52px 1fr 40px 40px;gap:10px;align-items:center;padding:6px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer}
+.ms-li.off{opacity:.55}
+.ms-li b{font-size:14.5px;line-height:1.3;overflow-wrap:anywhere}.ms-li small{color:var(--cherry);font-weight:400}
+.ms-th{width:52px;height:52px;border-radius:10px;overflow:hidden;background:var(--bg)}
+.ms-th img{width:100%;height:100%;object-fit:cover}
+.ms-li button{height:40px;border:0;border-radius:10px;background:var(--bg);font-size:18px;cursor:pointer;color:var(--ink)}
+.ms-li button:disabled{opacity:.3;cursor:default}
 </style>
 </head>
 <body>
@@ -491,8 +532,8 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <h1>Торты <em>на заказ</em> в Янино-1</h1>
       <p class="lead">Меня зовут Лариса, я кондитер с 6-летним стажем и участница международных конкурсов. Пеку торты любой сложности: детские, 3D, свадебные, на юбилей, с живыми и сахарными цветами и фигурками ручной лепки. Ещё капкейки, трайфлы, меренговые рулеты и имбирные пряники.</p>
       <div class="chips">
-        <span class="chip"><i></i>Торт 1,5 кг — 3 200 ₽</span>
-        <span class="chip s"><i></i>Дальше 2 000 ₽ за кг</span>
+        <span class="chip"><i></i>Торт 1,5 кг — <span data-pr="min">3 200 ₽</span></span>
+        <span class="chip s"><i></i>Дальше <span data-pr="kg">2 000 ₽</span> за кг</span>
         <span class="chip p"><i></i>Только свежие натуральные продукты</span>
       </div>
       <div class="cta">
@@ -505,7 +546,6 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <div class="gift-frame">
         <img src="img/hero-fixiki.jpg" width="600" height="800" alt="Детский торт на 5 лет с фигурками Фиксиков ручной лепки" fetchpriority="high">
         <span class="rib-h"></span><span class="rib-v"></span>
-        <div class="rate"><b>2021</b><span>Bronze Award<br>международный флешмоб</span></div>
       </div>
       <svg class="bow" viewBox="0 0 64 40" aria-hidden="true"><use href="#bow"/></svg>
       <div class="tag"><b>ручная лепка</b><span>цветы и фигурки на торт делаю сама</span></div>
@@ -526,19 +566,19 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     <div class="rv">
       <div class="eyebrow"><svg viewBox="0 0 64 40"><use href="#bow"/></svg>Меню и цены</div>
       <h2 class="h2">Что я пеку</h2>
-      <p class="lead">Цена торта зависит от веса: минимальный бисквитный торт 1,5 кг стоит 3 200 ₽, дальше 2 000 ₽ за кг. Сложный декор считаю отдельно, когда обсудим идею.</p>
+      <p class="lead">Цена торта зависит от веса: минимальный бисквитный торт 1,5 кг стоит <span data-pr="min">3 200 ₽</span>, дальше <span data-pr="kg">2 000 ₽</span> за кг. Сложный декор считаю отдельно, когда обсудим идею.</p>
     </div>
     <div class="tabs" role="tablist" aria-label="Разделы меню">
-      <button class="tab" role="tab" id="t-cakes" aria-controls="p-cakes" aria-selected="true">Торты <small>от 3 200 ₽</small></button>
+      <button class="tab" role="tab" id="t-cakes" aria-controls="p-cakes" aria-selected="true">Торты <small>от <span data-pr="min">3 200 ₽</span></small></button>
       <button class="tab" role="tab" id="t-sweets" aria-controls="p-sweets" aria-selected="false" tabindex="-1">Десерты <small>от 4 шт</small></button>
     </div>
 
     <div class="panel" id="p-cakes" role="tabpanel" aria-labelledby="t-cakes">
       <div class="wtable rv">
-        <div class="wt"><b>1,5 кг</b><span>3 200 ₽</span><small>5–6 гостей</small></div>
-        <div class="wt"><b>2 кг</b><span>4 000 ₽</span><small>7–8 гостей</small></div>
-        <div class="wt"><b>3 кг</b><span>6 000 ₽</span><small>10–12 гостей</small></div>
-        <div class="wt"><b>от 4 кг</b><span>2 000 ₽/кг</span><small>свадьбы, юбилеи</small></div>
+        <div class="wt"><b>1,5 кг</b><span><span data-pr="min">3 200 ₽</span></span><small>5–6 гостей</small></div>
+        <div class="wt"><b>2 кг</b><span><span data-pr="k2">4 000 ₽</span></span><small>7–8 гостей</small></div>
+        <div class="wt"><b>3 кг</b><span><span data-pr="k3">6 000 ₽</span></span><small>10–12 гостей</small></div>
+        <div class="wt"><b>от 4 кг</b><span><span data-pr="kg">2 000 ₽</span>/кг</span><small>свадьбы, юбилеи</small></div>
       </div>
       <div class="grid">
         <article class="card"><div class="ph"><img src="img/w-kids-ksenia.jpg" width="800" height="792" alt="Нежный детский торт с мишкой, шарами и именем Ксения" loading="lazy"><span class="badge">детский</span></div><div class="bd"><h3>Детские торты</h3><p>Любимые герои, машинки, имя и возраст. Помогу выбрать начинку, которую точно съедят дети.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="детский торт">Хочу такой</button></div></div></article>
@@ -550,7 +590,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
         <article class="card"><div class="ph"><img src="img/w-dragon-tree.jpg" width="600" height="800" alt="Новогодний торт с ёлкой и зелёным драконом" loading="lazy"><span class="badge">праздники</span></div><div class="bd"><h3>Новогодние и праздничные</h3><p>К Новому году, 8 Марта, Пасхе и другим праздникам: фигурки и тематический декор.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="праздничный торт">Хочу такой</button></div></div></article>
         <article class="card"><div class="ph"><img src="img/w-wedding.jpg" width="800" height="1000" alt="Многоярусный белый свадебный торт с сахарными розами и топпером с инициалами" loading="lazy"><span class="badge">свадебный</span></div><div class="bd"><h3>Свадебные торты</h3><p>Многоярусные торты с сахарными розами и топпером с инициалами. Вес посчитаю по количеству гостей.</p><div class="row"><span class="price">от 3 200 ₽</span><button class="want" data-kind="Торт" data-item="свадебный торт">Хочу такой</button></div></div></article>
       </div>
-      <p class="note"><svg aria-hidden="true"><use href="#info"/></svg><span>Посыпки и бусины входят в стоимость. Печать на сахарной бумаге — от 250 ₽. Свежие ягоды, живые цветы и эксклюзивный декор (фигурки, сложная модельная работа) — по согласованию.</span></p>
+      <p class="note"><svg aria-hidden="true"><use href="#info"/></svg><span>Посыпки и бусины входят в стоимость. Печать на сахарной бумаге — от <span data-pr="print">250 ₽</span>. Свежие ягоды, живые цветы и эксклюзивный декор (фигурки, сложная модельная работа) — по согласованию.</span></p>
     </div>
 
     <div class="panel" id="p-sweets" role="tabpanel" aria-labelledby="t-sweets" hidden>
@@ -597,7 +637,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
         <div class="cscale"><span>4</span><span>20</span><span>40</span><span>60</span></div>
         <h3>Добавить к торту</h3>
         <div class="opts">
-          <label class="opt"><input type="checkbox" name="c-add" value="Печать на сахарной бумаге" data-p="250"><span>Печать на сахарной бумаге <em>от 250 ₽</em></span></label>
+          <label class="opt"><input type="checkbox" name="c-add" value="Печать на сахарной бумаге" data-p="250"><span>Печать на сахарной бумаге <em>от <span data-pr="print">250 ₽</span></em></span></label>
           <label class="opt"><input type="checkbox" name="c-add" value="Фигурки ручной лепки" data-p="0"><span>Фигурки ручной лепки <em>по согласованию</em></span></label>
           <label class="opt"><input type="checkbox" name="c-add" value="Свежие ягоды" data-p="0"><span>Свежие ягоды <em>по согласованию</em></span></label>
           <label class="opt"><input type="checkbox" name="c-add" value="Живые цветы" data-p="0"><span>Живые цветы <em>по согласованию</em></span></label>
@@ -721,7 +761,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
           <li><b>Самовывоз</b><span>Янино-1, ул. Лесная, 9 к4</span></li>
           <li><b>Доставка</b><span>Яндекс Доставка, оплачивается отдельно</span></li>
           <li><b>Входит в цену</b><span>посыпки и бусины</span></li>
-          <li><b>Отдельно</b><span>свежие ягоды, цветы, фигурки, печать от 250 ₽</span></li>
+          <li><b>Отдельно</b><span>свежие ягоды, цветы, фигурки, печать от <span data-pr="print">250 ₽</span></span></li>
         </ul>
       </div>
     </div>
@@ -757,7 +797,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       <h2 class="h2">Частые вопросы</h2>
     </div>
     <div class="faq rv">
-      <details><summary>Сколько стоит торт?</summary><p>Минимальный бисквитный торт 1,5 кг — 3 200 ₽, дальше 2 000 ₽ за кг: 2 кг — 4 000 ₽, 3 кг — 6 000 ₽. Сложный декор, фигурки, свежие ягоды и цветы считаю отдельно, когда обсудим идею.</p></details>
+      <details><summary>Сколько стоит торт?</summary><p>Минимальный бисквитный торт 1,5 кг — <span data-pr="min">3 200 ₽</span>, дальше <span data-pr="kg">2 000 ₽</span> за кг: 2 кг — <span data-pr="k2">4 000 ₽</span>, 3 кг — <span data-pr="k3">6 000 ₽</span>. Сложный декор, фигурки, свежие ягоды и цветы считаю отдельно, когда обсудим идею.</p></details>
       <details><summary>Можно торт меньше 1,5 кг?</summary><p>Нет, все торты от 1,5 кг. Если гостей мало, возьмите капкейки или трайфлы: их можно заказать от 4 штук.</p></details>
       <details><summary>Какой вес выбрать?</summary><p>Считайте 250–300 г на человека. Торт 1,5 кг — на 5–6 гостей, 2 кг — на 7–8, 3 кг — на 10–12. Удобно посчитать <a href="#calc">в калькуляторе</a>.</p></details>
       <details><summary>За сколько дней заказывать?</summary><p>Лучше за 10–14 дней до праздника. Срочные заказы беру по возможности, напишите, и я скажу, есть ли свободное окно.</p></details>
@@ -878,6 +918,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
   <div class="wrap">
     <a class="logo" href="#top"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="31" fill="#3A2523"/><use href="#bow" x="8" y="14" width="48" height="32"/></svg><span><b>Торты Янино-1</b><small>кондитер Лариса Котова</small></span></a>
     <span>© 2026 Торты на заказ Янино-1 · <a href="privacy.html">Политика обработки персональных данных</a></span>
+    <a href="#master" data-master class="ft-ms">Вход для мастера</a>
     <a href="tel:+79145070270">+7 914 507-02-70</a>
     <a href="https://vk.ru/club236978958" target="_blank" rel="noopener">Группа ВКонтакте</a>
   </div>
@@ -888,6 +929,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 <dialog class="lb" id="lb"><div class="in"><button class="x" type="button" aria-label="Закрыть">×</button><img id="lb-img" alt=""><p id="lb-cap"></p></div></dialog>
 
 
+<script>document.write('<script src="data.js?t=' + Math.floor(Date.now() / 6e4) + '"><\/script>')</script>
 <script>
 (() => {
   const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
@@ -920,13 +962,14 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     if (text) { const c = form.comment; c.value = c.value.trim() ? c.value.trim() + "\n" + text : text; }
     $("order").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
   }
-  document.querySelectorAll(".want").forEach(b => b.addEventListener("click", () => preset(b.dataset.kind, "Интересует: " + b.dataset.item)));
+  document.addEventListener("click", e => { const b = e.target.closest(".want"); if (b && !document.documentElement.classList.contains("ms-on")) preset(b.dataset.kind, "Интересует: " + b.dataset.item); });
 
+  const PRICE = {min: 3200, kg: 2000, print: 250};
   // ===== weight calculator =====
   const cg = $("c-guests");
   function calc() {
     const n = +cg.value;
-    const w = g => Math.max(1.5, Math.ceil(n * g * 2) / 2), pr = k => k <= 1.5 ? 3200 : k * 2000;
+    const w = g => Math.max(1.5, Math.ceil(n * g * 2) / 2), pr = k => k <= 1.5 ? PRICE.min : k * PRICE.kg;
     const kg = w(0.25), kg2 = w(0.3), price = pr(kg), price2 = pr(kg2);
     const kf = k => String(k).replace(".", ",");
     const adds = [...document.querySelectorAll("[name=c-add]:checked")];
@@ -951,11 +994,12 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 
   // ===== gallery lightbox =====
   const lb = $("lb");
-  document.querySelectorAll("#gal button").forEach(b => b.addEventListener("click", () => {
+  $("gal").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b || document.documentElement.classList.contains("ms-on")) return;
     const img = b.querySelector("img");
     $("lb-img").src = img.src; $("lb-img").alt = img.alt; $("lb-cap").textContent = b.querySelector("span").textContent;
     if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
-  }));
+  });
   lb.querySelector(".x").addEventListener("click", () => lb.close());
   lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
 
@@ -1009,6 +1053,266 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     try { await navigator.clipboard.writeText(t); $("copy").textContent = "Текст скопирован"; }
     catch (x) { form.comment.value = t; form.comment.select(); $("copy").textContent = "Выделено в поле пожеланий"; }
   };
+
+  // ===== данные сайта: цены, торты, десерты, начинки, работы (правки мастера из data.js) =====
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+  const PEND = {};
+  const src = p => PEND[p] || p;
+  const LAYC = ["#F3E8CF", "#5A3326", "#F2A3B0", "#C98A3C", "#FFF6E2", "#9E1F38", "#E9CDB0", "#7A4A35"];
+  function scrape() {
+    const im = (el, o) => { const i = el.querySelector("img"); if (i) Object.assign(o, {img: i.getAttribute("src"), w: +i.getAttribute("width"), h: +i.getAttribute("height"), alt: i.alt}); return o; };
+    const tx = (el, s) => { const x = el.querySelector(s); return x ? x.textContent.trim() : ""; };
+    return {v: 1,
+      price: {...PRICE},
+      cakes: [...document.querySelectorAll("#p-cakes .card")].map(c => im(c, {badge: tx(c, ".badge"), t: tx(c, "h3"), d: tx(c, ".bd p"), p: +tx(c, ".price").replace(/\D/g, "") || 0, item: c.querySelector(".want").dataset.item})),
+      sweets: [...document.querySelectorAll("#p-sweets .dcard")].map(c => im(c, {t: tx(c, "h3"), d: tx(c, "p"), rows: [...c.querySelectorAll(".plist li")].map(li => [tx(li, "span"), +tx(li, "b").replace(/\D/g, "")]), kind: c.querySelector(".want").dataset.kind, item: c.querySelector(".want").dataset.item})),
+      fill: [...document.querySelectorAll("#fillings .fcard")].map(c => im(c, {t: tx(c, "h3"), sub: tx(c, ".sub"), layers: [...c.querySelectorAll(".layers li")].map(li => [li.querySelector("i").style.background, li.textContent.trim()]), sl: [...c.querySelectorAll(".slice .s i")].map(i => [+i.style.flex.split(" ")[0] || 1, i.style.background])})),
+      gal: [...document.querySelectorAll("#gal button")].map(b => im(b, {cap: tx(b, "span")}))};
+  }
+  const DEF = scrape();
+  let D = DEF, BASE_REV = 0;
+  const SD = window.SITE_DATA;
+  if (SD && SD.v === 1 && SD.price) { D = SD; BASE_REV = SD.rev || 0; }
+  try { const pub = JSON.parse(sessionStorage.getItem("ty-pub-v1")); if (pub && pub.rev > BASE_REV) { D = pub.data; BASE_REV = pub.rev; Object.assign(PEND, pub.pend || {}); } } catch (_) {}
+
+  const imgTag = (o, extra) => `<img src="${esc(src(o.img))}" width="${o.w || 800}" height="${o.h || 800}" alt="${esc(o.alt || o.t || o.cap || "")}" loading="lazy"${extra || ""}>`;
+  const priceTxt = p => p ? "от " + fmt(p) : "по запросу";
+  const cakeHtml = (c, i) => `<article class="card" data-i="${i}"><div class="ph">${imgTag(c)}${c.badge ? `<span class="badge">${esc(c.badge)}</span>` : ""}</div><div class="bd"><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><div class="row"><span class="price">${priceTxt(c.p)}</span><button class="want" data-kind="Торт" data-item="${esc(c.item || c.t.toLowerCase())}">Хочу такой</button></div></div></article>`;
+  const sweetHtml = (c, i, a) => {
+    const item = c.item || c.t.toLowerCase(), kind = c.kind || "Другое";
+    return c.rows && c.rows.length
+      ? `<article class="dcard rv${a}" data-i="${i}">${imgTag(c, ' class="dimg"')}<h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><ul class="plist">${c.rows.map(r => `<li><span>${esc(r[0])}</span><b>${r[1] ? fmt(r[1]) : "по запросу"}</b></li>`).join("")}</ul><button class="btn btn-line want" data-kind="${esc(kind)}" data-item="${esc(item)}">Заказать ${esc(item)}</button></article>`
+      : `<article class="dcard ph rv${a}" data-i="${i}">${imgTag(c)}<div><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><button class="btn btn-line want" data-kind="${esc(kind)}" data-item="${esc(item)}">Спросить цену</button></div></article>`;
+  };
+  const fillHtml = (c, i, a) => {
+    const sl = c.sl && c.sl.length ? c.sl : c.layers.concat(c.layers.slice(0, 2)).map((l, k) => [k % 2 ? .6 : 1.1, l[0]]);
+    const ph = c.img ? imgTag(c) : `<div class="slice" aria-hidden="true"><div class="s">${sl.map(s => `<i style="flex:${+s[0] || 1};background:${esc(s[1])}"></i>`).join("")}</div><span class="lbl">схема слоёв</span></div>`;
+    return `<article class="fcard rv${a}" data-i="${i}"><div class="ph">${ph}</div><div class="bd"><h3>${esc(c.t)}</h3>${c.sub ? `<p class="sub">${esc(c.sub)}</p>` : ""}<ul class="layers">${c.layers.map(l => `<li><i style="background:${esc(l[0])}"></i>${esc(l[1])}</li>`).join("")}</ul></div></article>`;
+  };
+  const galHtml = (c, i) => `<button type="button" data-i="${i}">${imgTag(c)}<span>${esc(c.cap)}</span></button>`;
+  const vis = (arr, f, a) => arr.map((c, i) => c.hide && !M ? "" : f(c, i, a).replace(/^<(\w+) class="/, `<$1 class="${c.hide ? "ms-hid " : ""}`)).join("");
+  let M = null;
+  function render() {
+    Object.assign(PRICE, D.price);
+    const pv = {min: PRICE.min, kg: PRICE.kg, k2: 2 * PRICE.kg, k3: 3 * PRICE.kg, print: PRICE.print};
+    document.querySelectorAll("[data-pr]").forEach(s => s.textContent = fmt(pv[s.dataset.pr]));
+    const pc = document.querySelector('[name=c-add][data-p]:not([data-p="0"])'); if (pc) pc.dataset.p = PRICE.print;
+    const a = " in";
+    document.querySelector("#p-cakes .grid").innerHTML = vis(D.cakes, cakeHtml, a);
+    document.querySelector("#p-sweets .dgrid").innerHTML = vis(D.sweets, sweetHtml, a);
+    document.querySelector("#fillings .fgrid").innerHTML = vis(D.fill, fillHtml, a);
+    $("gal").innerHTML = vis(D.gal, galHtml, a);
+    const sel = $("f-filling"), cur = sel.value;
+    sel.innerHTML = '<option value="">Подскажите мне</option>' + D.fill.filter(f => !f.hide).map(f => `<option>${esc(f.t)}</option>`).join("");
+    sel.value = cur;
+    calc();
+  }
+  if (D !== DEF) render();
+
+  // ===== режим мастера: Лариса сама меняет цены, торты, десерты, начинки и фото =====
+  // MASTER_URL: веб-приложение Apps Script (вход по паролю, сохранение в GitHub). Пусто = демо без сохранения.
+  const MASTER_URL = "";
+  const TKEY = "ty-master-v1", DKEY = "ty-draft-v1", PKEY = "ty-pub-v1";
+  const LS = {get: k => { try { return JSON.parse(localStorage.getItem(k)); } catch (_) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (_) { return false; } }, del: k => { try { localStorage.removeItem(k); } catch (_) {} }};
+  const token = () => { const t = LS.get(TKEY); return t && t.exp > Date.now() ? t : null; };
+  let nEd = 0;
+  const status = () => bar.querySelector("[data-n]").textContent = nEd ? "Несохранённых правок: " + nEd : (M && M.demo ? "Демо: сохранение подключится позже" : "Все правки сохранены");
+  function persist() {
+    nEd++;
+    const ok = LS.set(DKEY, {base: BASE_REV, n: nEd, data: D, pend: PEND});
+    status(); render(); addSecButtons();
+    if (!ok) mtoast("Черновик не помещается в память телефона, сохраните правки на сайт");
+  }
+
+  const bar = document.createElement("div");
+  bar.className = "ms-bar"; bar.hidden = true;
+  bar.innerHTML = `<b>Режим мастера</b><span data-n></span><button class="btn btn-red" data-a="save">Сохранить на сайт</button><button class="btn btn-line" data-a="undo">Отменить правки</button><button class="btn btn-line" data-a="out">Выйти</button>`;
+  document.body.appendChild(bar);
+  const toastEl = document.createElement("div"); toastEl.className = "ms-toast"; toastEl.hidden = true; document.body.appendChild(toastEl);
+  let tt; function mtoast(t, ms) { toastEl.textContent = t; toastEl.hidden = false; clearTimeout(tt); tt = setTimeout(() => toastEl.hidden = true, ms || 4500); }
+
+  const dlg = document.createElement("dialog"); dlg.className = "ms-dlg"; document.body.appendChild(dlg);
+  const openDlg = html => { dlg.innerHTML = `<div class="ms-in">${html}</div>`; if (!dlg.open) dlg.showModal(); document.body.style.overflow = "hidden"; dlg.scrollTop = 0; };
+  const closeDlg = () => { dlg.close(); document.body.style.overflow = ""; };
+  dlg.addEventListener("close", () => document.body.style.overflow = "");
+  dlg.addEventListener("click", e => { if (e.target.closest("[data-close]")) closeDlg(); });
+
+  async function api(body) {
+    const r = await fetch(MASTER_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(body), signal: AbortSignal.timeout(90000)});
+    return r.json();
+  }
+
+  function loginDlg() {
+    openDlg(`<h3>Вход для мастера</h3><p>Здесь можно менять цены, торты, десерты, начинки и фото работ.</p>
+      <form id="ms-lf"><label class="ms-f"><span>Пароль</span><input type="password" id="ms-pw" autocomplete="current-password" required></label><p class="ms-err" id="ms-le"></p>
+      <div class="ms-row"><button class="btn btn-red" type="submit">Войти</button><button class="btn btn-line" type="button" data-close>Закрыть</button></div></form>`);
+    $("ms-lf").onsubmit = async e => {
+      e.preventDefault(); const b = e.target.querySelector("[type=submit]"); b.disabled = true; b.textContent = "Проверяю…";
+      if (!MASTER_URL) { closeDlg(); enter({token: "demo", exp: Date.now() + 864e5, demo: true}); return; }
+      try {
+        const r = await api({a: "login", pw: $("ms-pw").value});
+        if (r.ok) { LS.set(TKEY, {token: r.token, exp: r.exp}); closeDlg(); enter(token()); return; }
+        $("ms-le").textContent = r.err === "locked" ? "Слишком много попыток, подождите 15 минут" : "Неверный пароль";
+      } catch (x) { $("ms-le").textContent = "Нет связи, попробуйте ещё раз"; }
+      b.disabled = false; b.textContent = "Войти";
+    };
+  }
+
+  const SECS = [
+    ["price", "#p-cakes .wtable", "Изменить цены за вес"],
+    ["cakes", "#p-cakes .grid", "Торты: добавить, изменить, порядок"],
+    ["sweets", "#p-sweets .dgrid", "Десерты: добавить, изменить, порядок"],
+    ["fill", "#fillings .fgrid", "Начинки: добавить, изменить, порядок"],
+    ["gal", "#gal", "Работы: добавить фото, порядок"]];
+  function addSecButtons() {
+    document.querySelectorAll(".ms-sec").forEach(b => b.remove());
+    if (!M) return;
+    SECS.forEach(([k, sel, t]) => { const el = document.querySelector(sel); if (!el) return; const b = document.createElement("button"); b.type = "button"; b.className = "ms-sec"; b.dataset.ed = k; b.textContent = "✎ " + t; el.before(b); });
+  }
+  document.addEventListener("click", e => {
+    if (!M) return;
+    const b = e.target.closest(".ms-sec");
+    if (b) { e.preventDefault(); b.dataset.ed === "price" ? priceDlg() : listDlg(b.dataset.ed); return; }
+    const c = e.target.closest("#p-cakes .card, #p-sweets .dcard, #fillings .fcard, #gal > button, #p-cakes .wtable");
+    if (!c) return;
+    e.preventDefault(); e.stopPropagation();
+    if (c.classList.contains("wtable")) return priceDlg();
+    const k = c.closest("#gal") ? "gal" : c.closest("#fillings") ? "fill" : c.closest("#p-sweets") ? "sweets" : "cakes";
+    editItem(k, +c.dataset.i);
+  }, true);
+
+  function enter(t) {
+    M = {token: t.token, demo: !!t.demo};
+    const d = LS.get(DKEY);
+    if (d && d.data && d.data.v === 1) { D = d.data; Object.assign(PEND, d.pend || {}); nEd = d.n || 0; }
+    document.documentElement.classList.add("ms-on"); bar.hidden = false; document.body.style.paddingTop = bar.offsetHeight + "px"; document.documentElement.style.setProperty("--msh", bar.offsetHeight + "px");
+    status(); render(); addSecButtons();
+    if (location.hash === "#master") $("menu").scrollIntoView();
+  }
+  bar.addEventListener("click", e => {
+    const a = e.target.closest("[data-a]"); if (!a) return;
+    if (a.dataset.a === "save") save(false);
+    if (a.dataset.a === "out") { LS.del(TKEY); location.hash = ""; location.reload(); }
+    if (a.dataset.a === "undo") { openDlg(`<h3>Отменить несохранённые правки?</h3><p>Сайт вернётся к последней сохранённой версии.</p><div class="ms-row"><button class="btn btn-red" id="ms-undo">Да, отменить</button><button class="btn btn-line" data-close>Нет</button></div>`); $("ms-undo").onclick = () => { LS.del(DKEY); location.reload(); }; }
+  });
+
+  function priceDlg() {
+    const p = D.price;
+    openDlg(`<h3>Цены за вес</h3><p>Из этих цен считаются таблица весов, калькулятор и ответы в вопросах.</p>
+      <label class="ms-f"><span>Торт 1,5 кг (минимальный), ₽</span><input type="number" inputmode="numeric" min="0" step="50" id="p-min" value="${p.min}"></label>
+      <label class="ms-f"><span>Цена за 1 кг для тортов от 2 кг, ₽</span><input type="number" inputmode="numeric" min="0" step="50" id="p-kg" value="${p.kg}"></label>
+      <label class="ms-f"><span>Печать на сахарной бумаге, от ₽</span><input type="number" inputmode="numeric" min="0" step="10" id="p-print" value="${p.print}"></label>
+      <p class="ms-err" id="p-err"></p>
+      <div class="ms-row"><button class="btn btn-red" type="button" id="p-ok">Готово</button><button class="btn btn-line" type="button" data-close>Отмена</button></div>`);
+    $("p-ok").onclick = () => {
+      const n = id => Math.round(+$(id).value || 0), min = n("p-min"), kg = n("p-kg"), pr = n("p-print");
+      if (min < 100 || kg < 100) return $("p-err").textContent = "Проверьте цены";
+      D.cakes.forEach(c => { if (c.p === p.min) c.p = min; });
+      D.price = {min, kg, print: pr};
+      closeDlg(); persist(); done();
+    };
+  }
+  const done = () => mtoast(M.demo ? "Готово. Это демо, на сайт правки попадут после подключения" : "Готово. Когда закончите, нажмите «Сохранить на сайт»");
+
+  const NAMES = {cakes: ["Торты", "торт"], sweets: ["Десерты", "десерт"], fill: ["Начинки", "начинку"], gal: ["Работы", "фото работы"]};
+  const title = (k, c) => k === "gal" ? c.cap || "Без подписи" : c.t || "Без названия";
+  function listDlg(k) {
+    const arr = D[k];
+    openDlg(`<button class="ms-x" type="button" data-close aria-label="Закрыть">×</button><h3>${NAMES[k][0]}</h3><p>Стрелками меняйте порядок на сайте. Нажмите на строку, чтобы изменить.</p>
+      <div class="ms-list">${arr.map((c, i) => `<div class="ms-li${c.hide ? " off" : ""}" data-i="${i}"><span class="ms-th">${c.img ? `<img src="${esc(src(c.img))}" alt="">` : ""}</span><b>${esc(title(k, c))}${c.hide ? " <small>скрыто</small>" : ""}</b><button type="button" data-m="up" aria-label="Выше"${i ? "" : " disabled"}>↑</button><button type="button" data-m="down" aria-label="Ниже"${i < arr.length - 1 ? "" : " disabled"}>↓</button></div>`).join("")}</div>
+      <div class="ms-row"><button class="btn btn-red" type="button" id="l-add">+ Добавить ${NAMES[k][1]}</button><button class="btn btn-line" type="button" data-close>Закрыть</button></div>`);
+    dlg.querySelector(".ms-in").onclick = e => {
+      if (e.target.id === "l-add") return editItem(k, -1);
+      const row = e.target.closest(".ms-li"); if (!row) return;
+      const i = +row.dataset.i, m = e.target.closest("[data-m]");
+      if (m) { const j = i + (m.dataset.m === "up" ? -1 : 1); if (j < 0 || j >= arr.length) return; arr.splice(j, 0, arr.splice(i, 1)[0]); persist(); listDlg(k); return; }
+      editItem(k, i, true);
+    };
+  }
+
+  // фото: уменьшаем на телефоне до 1200 px
+  const rid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  const loadImg = f => new Promise((res, rej) => { const u = URL.createObjectURL(f), im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = u; });
+  function shrink(im) {
+    const c = document.createElement("canvas"), x = c.getContext("2d"), s = Math.min(1, 1200 / Math.max(im.naturalWidth, im.naturalHeight));
+    c.width = Math.round(im.naturalWidth * s); c.height = Math.round(im.naturalHeight * s);
+    x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height); x.drawImage(im, 0, 0, c.width, c.height);
+    return {url: c.toDataURL("image/jpeg", .84), w: c.width, h: c.height};
+  }
+
+  function editItem(k, i, fromList) {
+    const it0 = i >= 0 ? D[k][i] : null;
+    const it = it0 ? JSON.parse(JSON.stringify(it0)) : ({cakes: {t: "", badge: "", d: "", p: D.price.min}, sweets: {t: "", d: "", rows: [["4 шт", 0]], kind: "Другое"}, fill: {t: "", sub: "", layers: [["", "Бисквит"]], img: ""}, gal: {cap: ""}})[k];
+    const ph = () => `<div class="ms-ph">${it.img ? `<img src="${esc(src(it.img))}" alt="">` : `<span>${k === "fill" ? "Без фото: покажется схема слоёв" : "Фото нет"}</span>`}<label class="btn btn-line"><input type="file" accept="image/*" hidden id="e-file">${it.img ? "Заменить фото" : "+ Фото"}</label>${it.img && k === "fill" ? '<button type="button" class="btn btn-line" id="e-noph">Убрать фото</button>' : ""}</div>`;
+    const rowsHtml = () => it.rows.map((r, j) => `<div class="ms-sz"><input placeholder="Количество, например 6 шт" value="${esc(r[0])}" data-r="${j}" data-k="0"><input type="number" inputmode="numeric" min="0" step="10" placeholder="Цена ₽" value="${r[1] || ""}" data-r="${j}" data-k="1"><button type="button" data-rx="${j}" aria-label="Убрать строку">×</button></div>`).join("");
+    const f = (id, lab, v, ph2, ta) => `<label class="ms-f"><span>${lab}</span>${ta ? `<textarea id="${id}" rows="${ta}" maxlength="600" placeholder="${ph2 || ""}">${esc(v)}</textarea>` : `<input id="${id}" value="${esc(v)}" maxlength="90" placeholder="${ph2 || ""}">`}</label>`;
+    let body = `<div class="ms-f"><span>Фото</span><div id="e-ph">${ph()}</div></div>`;
+    if (k === "cakes") body += f("e-t", "Название", it.t, "Например: Детские торты") + f("e-badge", "Метка на фото (по желанию)", it.badge, "Например: детский") + f("e-d", "Описание", it.d, "", 3) + `<label class="ms-f"><span>Цена от, ₽ (пусто = по запросу)</span><input id="e-p" type="number" inputmode="numeric" min="0" step="50" value="${it.p || ""}"></label>`;
+    if (k === "sweets") body += f("e-t", "Название", it.t, "Например: Капкейки") + f("e-d", "Описание", it.d, "", 3) + `<div class="ms-f"><span>Цены (если пусто, будет кнопка «Спросить цену»)</span><div id="e-rows">${rowsHtml()}</div><button type="button" class="ms-link" id="e-row">+ строка цены</button></div>`;
+    if (k === "fill") body += f("e-t", "Название", it.t, "Например: Сникерс") + f("e-sub", "Коротко о вкусе", it.sub, "Например: шоколадная классика") + f("e-lay", "Слои, каждый с новой строки", it.layers.map(l => l[1]).join("\n"), "Шоколадный бисквит\nАрахисовый крем", 5);
+    if (k === "gal") body += f("e-cap", "Подпись", it.cap, "Например: Торт на 18 лет");
+    openDlg(`<button class="ms-x" type="button" data-close aria-label="Закрыть">×</button><h3>${it0 ? "Изменить" : "Добавить"} ${NAMES[k][1]}</h3>${body}
+      ${k === "gal" ? "" : `<label class="ms-ck"><input type="checkbox" id="e-hide"${it.hide ? " checked" : ""}><span>Скрыть с сайта (останется в списке, можно вернуть)</span></label>`}
+      <p class="ms-err" id="e-err"></p>
+      <div class="ms-row"><button class="btn btn-red" type="button" id="e-ok">Готово</button><button class="btn btn-line" type="button" id="e-back">${fromList || !it0 ? "Назад" : "Отмена"}</button>${it0 ? '<button class="btn btn-line ms-del" type="button" id="e-del">Удалить</button>' : ""}</div>`);
+    const box = dlg.querySelector(".ms-in");
+    const syncRows = () => box.querySelectorAll("[data-r]").forEach(x => { const r = it.rows[+x.dataset.r]; if (x.dataset.k === "0") r[0] = x.value.trim(); else r[1] = Math.max(0, Math.round(+x.value || 0)); });
+    const back = () => (fromList || !it0) ? listDlg(k) : closeDlg();
+    box.onclick = e => {
+      const b = e.target.closest("button"); if (!b) return;
+      if (b.id === "e-back") return back();
+      if (b.id === "e-noph") { it.img = ""; $("e-ph").innerHTML = ph(); return; }
+      if (b.id === "e-row") { syncRows(); it.rows.push(["", 0]); $("e-rows").innerHTML = rowsHtml(); return; }
+      if (b.dataset.rx) { syncRows(); it.rows.splice(+b.dataset.rx, 1); $("e-rows").innerHTML = rowsHtml(); return; }
+      if (b.id === "e-del") { if (b.dataset.sure) { D[k].splice(i, 1); persist(); listDlg(k); mtoast("Удалено. Чтобы это увидели все, нажмите «Сохранить на сайт»"); } else { b.dataset.sure = 1; b.textContent = "Точно удалить? Нажмите ещё раз"; } return; }
+      if (b.id !== "e-ok") return;
+      const v = id => $(id) ? $(id).value.trim() : "";
+      if (k === "cakes") Object.assign(it, {t: v("e-t"), badge: v("e-badge"), d: v("e-d"), p: Math.max(0, Math.round(+v("e-p") || 0))});
+      if (k === "sweets") { syncRows(); Object.assign(it, {t: v("e-t"), d: v("e-d"), rows: it.rows.filter(r => r[0] || r[1])}); }
+      if (k === "fill") { const ls = v("e-lay").split("\n").map(s => s.trim()).filter(Boolean); it.layers = ls.map((s, j) => [it.layers[j] && it.layers[j][0] || LAYC[j % LAYC.length], s]); Object.assign(it, {t: v("e-t"), sub: v("e-sub")}); if (it0 && it.layers.length !== it0.layers.length) delete it.sl; }
+      if (k === "gal") it.cap = v("e-cap");
+      if ($("e-hide")) it.hide = $("e-hide").checked || undefined;
+      const err = k !== "gal" && !it.t ? "Напишите название" : k !== "fill" && !it.img ? "Добавьте фото" : k === "fill" && !it.layers.length ? "Напишите хотя бы один слой" : "";
+      if (err) return $("e-err").textContent = err;
+      if (it0 && it.t && it0.t !== it.t) { delete it.item; }
+      if (it0 && it.img !== it0.img) it.alt = it.t || it.cap;
+      if (it0) D[k][i] = it; else D[k].unshift(it);
+      persist(); fromList || !it0 ? listDlg(k) : closeDlg(); done();
+    };
+    box.onchange = async e => {
+      if (e.target.id !== "e-file" || !e.target.files[0]) return;
+      $("e-err").textContent = "Обрабатываю фото…";
+      try { const r = shrink(await loadImg(e.target.files[0])), p = "img/u/" + rid() + ".jpg"; PEND[p] = r.url; Object.assign(it, {img: p, w: r.w, h: r.h, alt: it.t || it.cap || ""}); $("e-err").textContent = ""; }
+      catch (x) { $("e-err").textContent = "Фото не открылось, попробуйте другое"; }
+      $("e-ph").innerHTML = ph();
+    };
+  }
+
+  async function save(force) {
+    if (M.demo) return mtoast("Это демо: сохранение на сайт подключится позже");
+    if (!nEd && !force) return mtoast("Новых правок нет");
+    const t = token(); if (!t) { mtoast("Вход истёк, войдите ещё раз"); return loginDlg(); }
+    const used = new Set(["cakes", "sweets", "fill", "gal"].flatMap(k => D[k].map(c => c.img)));
+    const files = Object.entries(PEND).filter(([p]) => used.has(p)).map(([p, u]) => ({path: p, b64: u.split(",")[1]}));
+    const btn = bar.querySelector("[data-a=save]"); btn.disabled = true; btn.textContent = "Сохраняю…";
+    try {
+      const r = await api({a: "save", token: t.token, base: BASE_REV, force: !!force, data: D, files});
+      if (r.ok) {
+        BASE_REV = r.rev; nEd = 0; LS.del(DKEY);
+        try { sessionStorage.setItem(PKEY, JSON.stringify({rev: r.rev, data: D, pend: PEND})); } catch (_) {}
+        status(); mtoast("Сохранено! Посетители увидят изменения через 1–2 минуты", 7000);
+      } else if (r.err === "conflict") {
+        openDlg(`<h3>Сайт уже изменили с другого устройства</h3><p>Если сохранить сейчас, ваша версия заменит ту. Сохранить всё равно?</p><div class="ms-row"><button class="btn btn-red" id="ms-force">Сохранить мою версию</button><button class="btn btn-line" data-close>Отмена</button></div>`);
+        $("ms-force").onclick = () => { closeDlg(); save(true); };
+      } else if (r.err === "auth") { LS.del(TKEY); mtoast("Вход истёк, войдите ещё раз"); loginDlg(); }
+      else mtoast("Не получилось сохранить (" + (r.err || "ошибка") + "). Правки остались в черновике, попробуйте ещё раз", 8000);
+    } catch (x) { mtoast("Нет связи, правки остались в черновике. Попробуйте ещё раз", 8000); }
+    btn.disabled = false; btn.textContent = "Сохранить на сайт";
+  }
+
+  document.querySelectorAll("[data-master]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); const t = token(); t ? enter(t) : loginDlg(); }));
+  if (location.hash === "#master") { const t = token(); t ? enter(t) : loginDlg(); }
+  else { const d = LS.get(DKEY); if (token() && d && d.n) enter(token()); }
 
   // ===== reveal =====
   if (document.documentElement.classList.contains("anim") && "IntersectionObserver" in window) {
