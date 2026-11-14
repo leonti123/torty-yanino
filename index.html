@@ -570,7 +570,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     </div>
     <div class="tabs" role="tablist" aria-label="Разделы меню">
       <button class="tab" role="tab" id="t-cakes" aria-controls="p-cakes" aria-selected="true">Торты <small>от <span data-pr="min">3 200 ₽</span></small></button>
-      <button class="tab" role="tab" id="t-sweets" aria-controls="p-sweets" aria-selected="false" tabindex="-1">Десерты <small>от 4 шт</small></button>
+      <button class="tab" role="tab" id="t-sweets" aria-controls="p-sweets" aria-selected="false" tabindex="-1">Десерты <small>от 2 шт</small></button>
     </div>
 
     <div class="panel" id="p-cakes" role="tabpanel" aria-labelledby="t-cakes">
@@ -609,6 +609,13 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
           <ul class="plist"><li><span>4 шт</span><b>1 400 ₽</b></li><li><span>6 шт</span><b>2 100 ₽</b></li><li><span>9 шт</span><b>3 150 ₽</b></li><li><span>12 шт</span><b>4 200 ₽</b></li></ul>
           <button class="btn btn-line want" data-kind="Трайфлы" data-item="трайфлы">Заказать трайфлы</button>
         </article>
+        <article class="dcard rv">
+          <img class="dimg" src="img/d-cakebox.jpg" width="640" height="636" alt="Кейк боксы с крем-чизом, бананом и карамелью в прозрачных коробочках" loading="lazy">
+          <h3>Кейк боксы</h3>
+          <p>Шоколадный бисквит, карамельный крамб, сливочный крем-чиз, карамель и соус из бельгийского шоколада. Вкусы: клубничный, банановый, сникерс. Вес 380–400 г. Заказ от 2 штук.</p>
+          <ul class="plist"><li><span>1 шт</span><b>от 500 ₽</b></li><li><span>2 шт</span><b>от 1 000 ₽</b></li><li><span>4 шт</span><b>от 2 000 ₽</b></li></ul>
+          <button class="btn btn-line want" data-kind="Кейк боксы" data-item="кейк боксы">Заказать кейк боксы</button>
+        </article>
         <article class="dcard ph rv">
           <img src="img/madeleine-mama.jpg" width="800" height="800" alt="Печенье мадлен в розовой, жёлтой и шоколадной глазури с надписью Маме" loading="lazy">
           <div><h3>Мадлен и подарочные наборы</h3><p>Мадлен в глазури, наборы с ягодами и шоколадом. Цену назову под ваш набор.</p><button class="btn btn-line want" data-kind="Другое" data-item="подарочный набор">Спросить цену</button></div>
@@ -618,7 +625,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
           <div><h3>Имбирные пряники и меренговые рулеты</h3><p>Пряники с росписью к праздникам и меренговые рулеты. Цену назову под ваш заказ.</p><button class="btn btn-line want" data-kind="Другое" data-item="пряники или меренговый рулет">Спросить цену</button></div>
         </article>
       </div>
-      <p class="note"><svg aria-hidden="true"><use href="#info"/></svg><span>Стандартные упаковки на 4, 6, 9 и 12 штук. Заказ на 2 штуки обсуждаем отдельно.</span></p>
+      <p class="note"><svg aria-hidden="true"><use href="#info"/></svg><span>Капкейки и трайфлы: упаковки на 4, 6, 9 и 12 штук, заказ на 2 штуки обсуждаем отдельно. Кейк боксы: от 2 штук.</span></p>
     </div>
   </div>
 </section>
@@ -825,6 +832,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
               <label class="opt"><input type="checkbox" name="kind" value="3D торт"><span>3D торт</span></label>
               <label class="opt"><input type="checkbox" name="kind" value="Капкейки"><span>Капкейки</span></label>
               <label class="opt"><input type="checkbox" name="kind" value="Трайфлы"><span>Трайфлы</span></label>
+              <label class="opt"><input type="checkbox" name="kind" value="Кейк боксы"><span>Кейк боксы</span></label>
               <label class="opt"><input type="checkbox" name="kind" value="Меренговый рулет"><span>Меренговый рулет</span></label>
               <label class="opt"><input type="checkbox" name="kind" value="Имбирные пряники"><span>Имбирные пряники</span></label>
               <label class="opt"><input type="checkbox" name="kind" value="Другое"><span>Другое</span></label>
@@ -1065,7 +1073,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     return {v: 1,
       price: {...PRICE},
       cakes: [...document.querySelectorAll("#p-cakes .card")].map(c => im(c, {badge: tx(c, ".badge"), t: tx(c, "h3"), d: tx(c, ".bd p"), p: +tx(c, ".price").replace(/\D/g, "") || 0, item: c.querySelector(".want").dataset.item})),
-      sweets: [...document.querySelectorAll("#p-sweets .dcard")].map(c => im(c, {t: tx(c, "h3"), d: tx(c, "p"), rows: [...c.querySelectorAll(".plist li")].map(li => [tx(li, "span"), +tx(li, "b").replace(/\D/g, "")]), kind: c.querySelector(".want").dataset.kind, item: c.querySelector(".want").dataset.item})),
+      sweets: [...document.querySelectorAll("#p-sweets .dcard")].map(c => im(c, {t: tx(c, "h3"), d: tx(c, "p"), rows: [...c.querySelectorAll(".plist li")].map(li => [tx(li, "span"), +tx(li, "b").replace(/\D/g, "")]), from: /^от/.test(tx(c, ".plist b")) || undefined, kind: c.querySelector(".want").dataset.kind, item: c.querySelector(".want").dataset.item})),
       fill: [...document.querySelectorAll("#fillings .fcard")].map(c => im(c, {t: tx(c, "h3"), sub: tx(c, ".sub"), layers: [...c.querySelectorAll(".layers li")].map(li => [li.querySelector("i").style.background, li.textContent.trim()]), sl: [...c.querySelectorAll(".slice .s i")].map(i => [+i.style.flex.split(" ")[0] || 1, i.style.background])})),
       gal: [...document.querySelectorAll("#gal button")].map(b => im(b, {cap: tx(b, "span")}))};
   }
@@ -1081,7 +1089,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
   const sweetHtml = (c, i, a) => {
     const item = c.item || c.t.toLowerCase(), kind = c.kind || "Другое";
     return c.rows && c.rows.length
-      ? `<article class="dcard rv${a}" data-i="${i}">${imgTag(c, ' class="dimg"')}<h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><ul class="plist">${c.rows.map(r => `<li><span>${esc(r[0])}</span><b>${r[1] ? fmt(r[1]) : "по запросу"}</b></li>`).join("")}</ul><button class="btn btn-line want" data-kind="${esc(kind)}" data-item="${esc(item)}">Заказать ${esc(item)}</button></article>`
+      ? `<article class="dcard rv${a}" data-i="${i}">${imgTag(c, ' class="dimg"')}<h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><ul class="plist">${c.rows.map(r => `<li><span>${esc(r[0])}</span><b>${r[1] ? (c.from ? "от " : "") + fmt(r[1]) : "по запросу"}</b></li>`).join("")}</ul><button class="btn btn-line want" data-kind="${esc(kind)}" data-item="${esc(item)}">Заказать ${esc(item)}</button></article>`
       : `<article class="dcard ph rv${a}" data-i="${i}">${imgTag(c)}<div><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p><button class="btn btn-line want" data-kind="${esc(kind)}" data-item="${esc(item)}">Спросить цену</button></div></article>`;
   };
   const fillHtml = (c, i, a) => {
@@ -1248,7 +1256,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     const f = (id, lab, v, ph2, ta) => `<label class="ms-f"><span>${lab}</span>${ta ? `<textarea id="${id}" rows="${ta}" maxlength="600" placeholder="${ph2 || ""}">${esc(v)}</textarea>` : `<input id="${id}" value="${esc(v)}" maxlength="90" placeholder="${ph2 || ""}">`}</label>`;
     let body = `<div class="ms-f"><span>Фото</span><div id="e-ph">${ph()}</div></div>`;
     if (k === "cakes") body += f("e-t", "Название", it.t, "Например: Детские торты") + f("e-badge", "Метка на фото (по желанию)", it.badge, "Например: детский") + f("e-d", "Описание", it.d, "", 3) + `<label class="ms-f"><span>Цена от, ₽ (пусто = по запросу)</span><input id="e-p" type="number" inputmode="numeric" min="0" step="50" value="${it.p || ""}"></label>`;
-    if (k === "sweets") body += f("e-t", "Название", it.t, "Например: Капкейки") + f("e-d", "Описание", it.d, "", 3) + `<div class="ms-f"><span>Цены (если пусто, будет кнопка «Спросить цену»)</span><div id="e-rows">${rowsHtml()}</div><button type="button" class="ms-link" id="e-row">+ строка цены</button></div>`;
+    if (k === "sweets") body += f("e-t", "Название", it.t, "Например: Капкейки") + f("e-d", "Описание", it.d, "", 3) + `<div class="ms-f"><span>Цены (если пусто, будет кнопка «Спросить цену»)</span><div id="e-rows">${rowsHtml()}</div><button type="button" class="ms-link" id="e-row">+ строка цены</button></div><label class="ms-ck"><input type="checkbox" id="e-from"${it.from ? " checked" : ""}><span>Писать «от» перед ценами</span></label>`;
     if (k === "fill") body += f("e-t", "Название", it.t, "Например: Сникерс") + f("e-sub", "Коротко о вкусе", it.sub, "Например: шоколадная классика") + f("e-lay", "Слои, каждый с новой строки", it.layers.map(l => l[1]).join("\n"), "Шоколадный бисквит\nАрахисовый крем", 5);
     if (k === "gal") body += f("e-cap", "Подпись", it.cap, "Например: Торт на 18 лет");
     openDlg(`<button class="ms-x" type="button" data-close aria-label="Закрыть">×</button><h3>${it0 ? "Изменить" : "Добавить"} ${NAMES[k][1]}</h3>${body}
@@ -1268,7 +1276,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
       if (b.id !== "e-ok") return;
       const v = id => $(id) ? $(id).value.trim() : "";
       if (k === "cakes") Object.assign(it, {t: v("e-t"), badge: v("e-badge"), d: v("e-d"), p: Math.max(0, Math.round(+v("e-p") || 0))});
-      if (k === "sweets") { syncRows(); Object.assign(it, {t: v("e-t"), d: v("e-d"), rows: it.rows.filter(r => r[0] || r[1])}); }
+      if (k === "sweets") { syncRows(); Object.assign(it, {t: v("e-t"), d: v("e-d"), rows: it.rows.filter(r => r[0] || r[1]), from: $("e-f" + "rom").checked || undefined}); }
       if (k === "fill") { const ls = v("e-lay").split("\n").map(s => s.trim()).filter(Boolean); it.layers = ls.map((s, j) => [it.layers[j] && it.layers[j][0] || LAYC[j % LAYC.length], s]); Object.assign(it, {t: v("e-t"), sub: v("e-sub")}); if (it0 && it.layers.length !== it0.layers.length) delete it.sl; }
       if (k === "gal") it.cap = v("e-cap");
       if ($("e-hide")) it.hide = $("e-hide").checked || undefined;
