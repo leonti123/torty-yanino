@@ -1120,7 +1120,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 
   // ===== режим мастера: Лариса сама меняет цены, торты, десерты, начинки и фото =====
   // MASTER_URL: веб-приложение Apps Script (вход по паролю, сохранение в GitHub). Пусто = демо без сохранения.
-  const MASTER_URL = "";
+  const MASTER_URL = "https://script.google.com/macros/s/AKfycbzv-QU70hHbWeNjQRb5-9-ZJoyMlXg1i0bBqCGklcV2_CA3gF6Oo2mCXw8qp6RuKv-V/exec";
   const TKEY = "ty-master-v1", DKEY = "ty-draft-v1", PKEY = "ty-pub-v1";
   const LS = {get: k => { try { return JSON.parse(localStorage.getItem(k)); } catch (_) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (_) { return false; } }, del: k => { try { localStorage.removeItem(k); } catch (_) {} }};
   const token = () => { const t = LS.get(TKEY); return t && t.exp > Date.now() ? t : null; };
