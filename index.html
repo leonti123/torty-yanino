@@ -964,7 +964,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
 <script>document.write('<script src="data.js?t=' + Math.floor(Date.now() / 6e4) + '"><\/script>')</script>
 <script>
 (() => {
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbw_ODEfeFxT_3oIUjftJr2Y98HB1gT2kz8p3B1O9vtctl2oXRFT8KZu_CEqMFhQZIYT/exec";
   const $ = id => document.getElementById(id);
   const fmt = n => n.toLocaleString("ru-RU").replace(/ /g, " ") + " ₽";
   const plural = (n, f) => f[(n % 10 === 1 && n % 100 !== 11) ? 0 : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) ? 1 : 2];
@@ -1073,7 +1073,7 @@ form.fl{background:#fff;color:var(--ink);border-radius:28px;padding:28px 26px}
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет torty-yanino (Торты Янино-1)", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Сайт Торты Янино-1", ...details()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (x) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
